@@ -1,0 +1,1518 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#5e72e4">
+    <title>namero @S_P_P1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        :root {
+            --primary: #5e72e4;
+            --primary-light: #8290e9;
+            --secondary: #825ee4;
+            --success: #2dce89;
+            --danger: #f5365c;
+            --warning: #fb6340;
+            --info: #11cdef;
+            --dark: #32325d;
+            --dark-light: #525f7f;
+            --light: #f8f9fa;
+            --gray: #adb5bd;
+            --gray-light: #e9ecef;
+            --white: #ffffff;
+            --border-radius: 14px;
+            --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            min-height: 100vh;
+            padding: 0;
+            transition: var(--transition);
+            line-height: 1.6;
+        }
+        
+        .app-container {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+        }
+        
+        .main-content {
+            padding: 20px;
+            padding-bottom: 80px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 1.6rem;
+        }
+        
+        .app-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--box-shadow);
+            margin-bottom: 20px;
+            transition: var(--transition);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-title i {
+            font-size: 1.1rem;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            resize: none;
+            transition: var(--transition);
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(94, 114, 228, 0.2);
+            background-color: var(--white);
+        }
+        
+        textarea.input-field {
+            min-height: 120px;
+        }
+        
+        .style-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .style-option {
+            padding: 15px 10px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            background: var(--light);
+            border: 1px solid var(--gray-light);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .style-option i {
+            font-size: 1.4rem;
+            color: var(--gray);
+        }
+        
+        .style-option.active {
+            background: rgba(94, 114, 228, 0.1);
+            border-color: var(--primary);
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .style-option.active i {
+            color: var(--primary);
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 16px;
+            border: none;
+            border-radius: var(--border-radius);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn:hover {
+            opacity: 0.95;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(94, 114, 228, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .btn i {
+            font-size: 1.1rem;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: rgba(94, 114, 228, 0.1);
+        }
+        
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .action-btn {
+            padding: 12px;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .action-btn i {
+            font-size: 1rem;
+        }
+        
+        .download-btn {
+            background: var(--success);
+            color: white;
+        }
+        
+        .download-btn:hover {
+            background: #26b67c;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(45, 206, 137, 0.3);
+        }
+        
+        .retry-btn {
+            background: var(--danger);
+            color: white;
+        }
+        
+        .retry-btn:hover {
+            background: #e03154;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(245, 54, 92, 0.3);
+        }
+        
+        .share-btn {
+            background: var(--info);
+            color: white;
+        }
+        
+        .share-btn:hover {
+            background: #0fb5d8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(17, 205, 239, 0.3);
+        }
+        
+        .result-container {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .result-image-container {
+            position: relative;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--gray-light);
+        }
+        
+        .result-image {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s;
+        }
+        
+        .result-prompt {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            font-size: 0.85rem;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-height: 50%;
+            overflow-y: auto;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .empty-icon {
+            font-size: 3rem;
+            color: var(--gray);
+            margin-bottom: 15px;
+            opacity: 0.5;
+        }
+        
+        .empty-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-light);
+        }
+        
+        .empty-text {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        
+        .history-container {
+            display: none;
+            margin-top: 25px;
+        }
+        
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .history-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            aspect-ratio: 1/1;
+        }
+        
+        .history-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .history-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .history-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 10px;
+            color: white;
+            font-size: 0.8rem;
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+        
+        .status-active {
+            background: rgba(45, 206, 137, 0.15);
+            color: var(--success);
+        }
+        
+        .status-inactive {
+            background: rgba(245, 54, 92, 0.15);
+            color: var(--danger);
+        }
+        
+        .alert-message {
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+            animation: fadeIn 0.3s;
+            border-right: 4px solid;
+        }
+        
+        .alert-error {
+            background: rgba(245, 54, 92, 0.1);
+            color: var(--danger);
+            border-color: var(--danger);
+        }
+        
+        .alert-success {
+            background: rgba(45, 206, 137, 0.1);
+            color: var(--success);
+            border-color: var(--success);
+        }
+        
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(94, 114, 228, 0.2);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        
+        .loading-text {
+            font-size: 1.1rem;
+            color: var(--dark);
+            margin-top: 10px;
+        }
+        
+        .progress-container {
+            width: 80%;
+            max-width: 300px;
+            height: 8px;
+            background: var(--gray-light);
+            border-radius: 4px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            width: 0%;
+            transition: width 0.3s;
+        }
+        
+        .settings-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 85%;
+            max-width: 350px;
+            height: 100vh;
+            background: var(--white);
+            box-shadow: -2px 0 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            z-index: 1001;
+            transition: right 0.3s;
+            overflow-y: auto;
+        }
+        
+        .settings-panel.active {
+            right: 0;
+        }
+        
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .settings-title {
+            font-size: 1.3rem;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .close-settings {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .setting-group {
+            margin-bottom: 20px;
+        }
+        
+        .setting-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        .setting-select {
+            width: 100%;
+            padding: 12px;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--gray-light);
+            font-family: inherit;
+            background-color: var(--light);
+            color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        .setting-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(94, 114, 228, 0.1);
+        }
+        
+        .settings-footer {
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px solid var(--gray-light);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 15px;
+            background: var(--white);
+            border-top: 1px solid var(--gray-light);
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        .footer-btn {
+            background: none;
+            border: none;
+            color: var(--gray);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 10px;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .footer-btn.active {
+            color: var(--primary);
+        }
+        
+        .footer-btn-badge {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: var(--danger);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translate(-5px, -5px);
+        }
+        
+        .tabs {
+            display: none;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        .dark-mode {
+            background-color: #1a1a2e;
+            color: #f0f2f5;
+        }
+        
+        .dark-mode .card {
+            background: #16213e;
+            color: #f0f2f5;
+            border-color: #1a1a2e;
+        }
+        
+        .dark-mode .input-field,
+        .dark-mode .setting-select {
+            background-color: #0f3460;
+            color: #f0f2f5;
+            border-color: #1a1a2e;
+        }
+        
+        .dark-mode .input-field:focus,
+        .dark-mode .setting-select:focus {
+            background-color: #0f3460;
+        }
+        
+        .dark-mode .style-option {
+            background: #0f3460;
+            border-color: #1a1a2e;
+            color: #f0f2f5;
+        }
+        
+        .dark-mode .loading-overlay {
+            background: rgba(10, 10, 25, 0.95);
+        }
+        
+        .dark-mode .empty-icon {
+            color: #4a4a6a;
+        }
+        
+        .dark-mode .footer {
+            background: #16213e;
+            border-color: #1a1a2e;
+        }
+        
+        .dark-mode .settings-panel {
+            background: #16213e;
+            color: #f0f2f5;
+        }
+        
+        .dark-mode .settings-title,
+        .dark-mode .setting-label {
+            color: #f0f2f5;
+        }
+        
+        .dark-mode .close-settings {
+            color: #adb5bd;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        
+        @keyframes imagePop {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        @media (min-width: 768px) {
+            .app-container {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            
+            .style-options {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .history-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-btn {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container" id="app-container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="logo">
+                <i class="fas fa-robot logo-icon"></i>
+                <span>منشئ الصور الذكي</span>
+            </h1>
+            <p class="app-description">أنشئ صورًا مذهلة باستخدام الذكاء الاصطناعي</p>
+            <div class="status-badge status-inactive" id="api-status"><i class="fas fa-circle"></i> <span>API غير متصل</span></div>
+        </header>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Generator Tab -->
+            <div class="tab-content active" id="generator-tab">
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class="fas fa-magic"></i>
+                        إنشاء صورة جديدة
+                    </h2>
+                    
+                    <div class="input-group">
+                        <label for="prompt" class="input-label">وصف الصورة</label>
+                        <textarea id="prompt" class="input-field" placeholder="أدخل وصفًا تفصيليًا للصورة التي تريد إنشاءها... مثال: منظر لغروب الشمس على شاطئ بحري مع نخيل"></textarea>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label">نمط الصورة</label>
+                        <div class="style-options">
+                            <div class="style-option active" data-style="realistic">
+                                <i class="fas fa-camera"></i>
+                                <span>واقعي</span>
+                            </div>
+                            <div class="style-option" data-style="fantasy">
+                                <i class="fas fa-dragon"></i>
+                                <span>خيالي</span>
+                            </div>
+                            <div class="style-option" data-style="digital">
+                                <i class="fas fa-laptop-code"></i>
+                                <span>رقمي</span>
+                            </div>
+                            <div class="style-option" data-style="artistic">
+                                <i class="fas fa-paint-brush"></i>
+                                <span>فني</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button id="generate-btn" class="btn">
+                        <i class="fas fa-magic"></i>
+                        إنشاء الصورة
+                    </button>
+                </div>
+                
+                <div class="alert-message alert-error" id="error-message"></div>
+                <div class="alert-message alert-success" id="success-message"></div>
+                
+                <div class="empty-state" id="empty-state">
+                    <div class="empty-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3 class="empty-title">لا توجد صور بعد</h3>
+                    <p class="empty-text">قم بإنشاء أول صورة لك باستخدام الذكاء الاصطناعي</p>
+                </div>
+                
+                <div class="card result-container" id="result-container">
+                    <div class="result-image-container">
+                        <img id="result-image" class="result-image" src="" alt="الصورة الناتجة">
+                        <div class="result-prompt" id="result-prompt"></div>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="download-btn" class="action-btn download-btn">
+                            <i class="fas fa-download"></i>
+                            تحميل
+                        </button>
+                        <button id="retry-btn" class="action-btn retry-btn">
+                            <i class="fas fa-redo"></i>
+                            إعادة
+                        </button>
+                        <button id="share-btn" class="action-btn share-btn">
+                            <i class="fas fa-share-alt"></i>
+                            مشاركة
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- History Tab -->
+            <div class="tab-content" id="history-tab">
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class="fas fa-history"></i>
+                        المشاريع القديمه
+                    </h2>
+                    
+                    <div class="history-container" id="history-container" style="display: none;">
+                        <div class="history-grid" id="history-grid"></div>
+                    </div>
+                    
+                    <div class="empty-state" id="history-empty-state" style="display: block;">
+                        <div class="empty-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3 class="empty-title">لا توجد صور في السجل</h3>
+                        <p class="empty-text">سيتم حفظ الصور التي تنشئها هنا</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Settings Tab -->
+            <div class="tab-content" id="settings-tab">
+                <div class="card">
+                    <h2 class="card-title">
+                        <i class="fas fa-cog"></i>
+                        الإعدادات
+                    </h2>
+                    
+                    <div class="setting-group">
+                        <label for="theme-select" class="setting-label">وضع العرض</label>
+                        <select class="setting-select" id="theme-select">
+                            <option value="light">فاتح</option>
+                            <option value="dark">داكن</option>
+                            <option value="auto">تلقائي</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="quality-select" class="setting-label">جودة الصورة</label>
+                        <select class="setting-select" id="quality-select">
+                            <option value="medium">متوسطة (سرعة متوسطة)</option>
+                            <option value="high">عالية (أبطأ)</option>
+                            <option value="low">منخفضة (أسرع)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="size-select" class="setting-label">حجم الصورة</label>
+                        <select class="setting-select" id="size-select">
+                            <option value="512x512">512x512 (افتراضي)</option>
+                            <option value="1024x1024">1024x1024</option>
+                            <option value="256x256">256x256</option>
+                        </select>
+                    </div>
+                    
+<div class="setting-group">
+    <label for="api-url" class="setting-label">رابط API مخصص</label>
+    <input type="text" id="api-url" class="setting-select" value="https://brookbot11.serv00.net/api.php">
+</div>
+                    
+                    <button id="clear-history-btn" class="btn btn-outline">
+                        <i class="fas fa-trash"></i>
+                        مسح سجل الصور
+                    </button>
+                    
+                    <div class="settings-footer">
+                        <button id="reset-settings-btn" class="btn btn-outline">
+                            <i class="fas fa-undo"></i>
+                            إعادة تعيين الإعدادات
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer Navigation -->
+        <footer class="footer">
+            <button class="footer-btn active" data-tab="generator-tab">
+                <i class="fas fa-magic"></i>
+            </button>
+            <button class="footer-btn" data-tab="history-tab">
+                <i class="fas fa-history"></i>
+                <span class="footer-btn-badge" id="history-badge" style="display: none;">0</span>
+            </button>
+            <button class="footer-btn" data-tab="settings-tab">
+                <i class="fas fa-cog"></i>
+            </button>
+        </footer>
+        
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loading-overlay">
+            <div class="loader"></div>
+            <div class="loading-text" id="loading-text">جاري إنشاء صورتك...</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // قائمة بخوادم البروكسي البديلة
+            const PROXY_SERVERS = [
+                "https://api.allorigins.win/raw?url=",
+                "https://corsproxy.io/?",
+                "https://api.codetabs.com/v1/proxy/?quest="
+            ];
+            
+            // عناصر DOM
+            const appContainer = document.getElementById('app-container');
+            const styleOptions = document.querySelectorAll('.style-option');
+            const generateBtn = document.getElementById('generate-btn');
+            const promptInput = document.getElementById('prompt');
+            const resultContainer = document.getElementById('result-container');
+            const resultImage = document.getElementById('result-image');
+            const resultPrompt = document.getElementById('result-prompt');
+            const downloadBtn = document.getElementById('download-btn');
+            const retryBtn = document.getElementById('retry-btn');
+            const shareBtn = document.getElementById('share-btn');
+            const loadingOverlay = document.getElementById('loading-overlay');
+            const loadingText = document.getElementById('loading-text');
+            const progressBar = document.getElementById('progress-bar');
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+            const emptyState = document.getElementById('empty-state');
+            const apiStatus = document.getElementById('api-status');
+            const historyContainer = document.getElementById('history-container');
+            const historyGrid = document.getElementById('history-grid');
+            const historyEmptyState = document.getElementById('history-empty-state');
+            const historyBadge = document.getElementById('history-badge');
+            const footerBtns = document.querySelectorAll('.footer-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            const themeSelect = document.getElementById('theme-select');
+            const qualitySelect = document.getElementById('quality-select');
+            const sizeSelect = document.getElementById('size-select');
+            const apiUrlInput = document.getElementById('api-url');
+            const clearHistoryBtn = document.getElementById('clear-history-btn');
+            const resetSettingsBtn = document.getElementById('reset-settings-btn');
+            
+            // المتغيرات العامة
+            let generatedImages = [];
+            let currentTheme = 'light';
+            let currentTab = 'generator-tab';
+            let apiBaseUrl = 'https://brookbot11.serv00.net/api.php';
+            let isGenerating = false;
+            let currentProxyIndex = 0;
+            let retryCount = 0;
+            const MAX_RETRIES = 3;
+            
+            // تهيئة التطبيق
+            initApp();
+            
+            // اختيار أنماط الصور
+            styleOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    if (isGenerating) return;
+                    
+                    styleOptions.forEach(opt => opt.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // زر إنشاء الصورة
+            generateBtn.addEventListener('click', generateImage);
+            
+            // زر إعادة المحاولة
+            retryBtn.addEventListener('click', generateImage);
+            
+            // زر تحميل الصورة
+            downloadBtn.addEventListener('click', downloadImage);
+            
+            // زر مشاركة الصورة
+            shareBtn.addEventListener('click', shareImage);
+            
+            // تبديل التبويبات
+            footerBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    switchTab(tabId);
+                });
+            });
+            
+            // تغيير السمة
+            themeSelect.addEventListener('change', changeTheme);
+            
+            // تغيير إعدادات API
+            apiUrlInput.addEventListener('change', saveApiUrl);
+            
+            // مسح السجل
+            clearHistoryBtn.addEventListener('click', clearHistory);
+            
+            // إعادة تعيين الإعدادات
+            resetSettingsBtn.addEventListener('click', resetSettings);
+            
+            // وظيفة تهيئة التطبيق
+            function initApp() {
+                // تحميل السجل من localStorage
+                loadHistory();
+                
+                // تحميل الإعدادات
+                loadSettings();
+                
+                // اختبار اتصال API
+                checkAPIStatus();
+                
+                // تحديث واجهة السجل
+                updateHistoryUI();
+                
+                // الكشف عن السمة المفضلة للمستخدم
+                detectPreferredTheme();
+                
+                // إعداد مستمع لتغير السمة التلقائي
+                setupThemeListener();
+                
+                // عرض التبويب النشط
+                switchTab(currentTab);
+            }
+            
+            // وظيفة إنشاء الصورة
+            function generateImage() {
+                if (isGenerating) return;
+                
+                const prompt = promptInput.value.trim();
+                const selectedStyle = document.querySelector('.style-option.active').dataset.style;
+                const quality = qualitySelect.value;
+                const size = sizeSelect.value;
+                
+                if (!prompt) {
+                    showError('الرجاء إدخال وصف للصورة');
+                    promptInput.focus();
+                    return;
+                }
+                
+                if (prompt.length < 10) {
+                    showError('الوصف قصير جدًا. يرجى إدخال وصف أكثر تفصيلاً');
+                    return;
+                }
+                
+                isGenerating = true;
+                startLoading();
+                hideMessages();
+                
+                // إضافة نمط الصورة إلى الوصف
+                const styleText = getStyleText(selectedStyle);
+                const fullPrompt = `${prompt} ${styleText}`;
+                
+                // محاكاة شريط التقدم
+                simulateProgress();
+                
+                // ترجمة النص إلى الإنجليزية
+                translateToEnglish(fullPrompt)
+                    .then(translatedText => {
+                        // إعادة التعيين للحالة الأولية
+                        retryCount = 0;
+                        
+                        // محاولة إنشاء الصورة
+                        tryGenerateImage(translatedText, prompt, fullPrompt);
+                    })
+                    .catch(error => {
+                        console.error('Translation error:', error);
+                        stopLoading();
+                        showError('حدث خطأ أثناء ترجمة النص. يرجى المحاولة مرة أخرى.');
+                        isGenerating = false;
+                    });
+            }
+            
+            // محاولة إنشاء الصورة مع البروكسي
+            function tryGenerateImage(translatedText, originalPrompt, fullPrompt) {
+                retryCount++;
+                
+                // تحديث نص التحميل
+                loadingText.textContent = retryCount > 1 ? 
+                    `جاري إنشاء صورتك... (المحاولة ${retryCount}/${MAX_RETRIES})` : 
+                    'جاري إنشاء صورتك...';
+                
+                // بناء رابط API مع المعلمات
+                const params = new URLSearchParams();
+                params.append('text', translatedText);
+                params.append('quality', qualitySelect.value);
+                params.append('size', sizeSelect.value);
+                
+                const apiUrl = `${apiBaseUrl}?${params.toString()}`;
+                const proxyUrl = PROXY_SERVERS[currentProxyIndex];
+                const fullUrl = proxyUrl + encodeURIComponent(apiUrl);
+                
+                // تحميل الصورة باستخدام fetch
+                fetch(fullUrl)
+                    .then(response => {
+                        if (!response.ok) throw new Error('فشل في تحميل الصورة');
+                        return response.blob();
+                    })
+                    .then(blob => {
+                        const imageUrl = URL.createObjectURL(blob);
+                        displayGeneratedImage(imageUrl, originalPrompt, fullPrompt);
+                    })
+                    .catch(error => {
+                        console.error('Error generating image:', error);
+                        
+                        if (retryCount < MAX_RETRIES) {
+                            // تبديل البروكسي والمحاولة مرة أخرى
+                            currentProxyIndex = (currentProxyIndex + 1) % PROXY_SERVERS.length;
+                            setTimeout(() => tryGenerateImage(translatedText, originalPrompt, fullPrompt), 1000);
+                        } else {
+                            stopLoading();
+                            showError('فشل إنشاء الصورة بعد عدة محاولات. يرجى المحاولة لاحقًا.');
+                            isGenerating = false;
+                        }
+                    });
+            }
+            
+            // عرض الصورة المولدة
+            function displayGeneratedImage(imageUrl, originalPrompt, fullPrompt) {
+                stopLoading();
+                resultImage.src = imageUrl;
+                resultPrompt.textContent = originalPrompt;
+                resultImage.classList.add('generated-image');
+                resultContainer.style.display = 'block';
+                emptyState.style.display = 'none';
+                
+                // حفظ الصورة في السجل
+                saveToHistory(imageUrl, originalPrompt, fullPrompt);
+                
+                // عرض رسالة نجاح
+                showSuccess('تم إنشاء الصورة بنجاح!');
+                
+                isGenerating = false;
+                
+                // التمرير إلى الصورة الناتجة
+                setTimeout(() => {
+                    resultContainer.scrollIntoView({ behavior: 'smooth' });
+                }, 300);
+            }
+            
+            // ترجمة النص إلى الإنجليزية
+            function translateToEnglish(text) {
+                return new Promise((resolve, reject) => {
+                    const encodedText = encodeURIComponent(text);
+                    const translationUrl = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=${encodedText}`;
+                    
+                    fetch(translationUrl)
+                        .then(response => response.json())
+                        .then(data => {
+                            const translatedText = data[0][0][0];
+                            resolve(translatedText);
+                        })
+                        .catch(error => reject(error));
+                });
+            }
+            
+            // الحصول على نص النمط المناسب
+            function getStyleText(style) {
+                const styles = {
+                    'realistic': 'بأسلوب تصوير فوتوغرافي واقعي عالي الجودة',
+                    'fantasy': 'بأسلوب فني خيالي مع تفاصيل سريالية',
+                    'digital': 'بتصميم رقمي حديث بألوان زاهية',
+                    'artistic': 'برسمة فنية بأسلوب لوحة زيتية'
+                };
+                return styles[style] || '';
+            }
+            
+            // محاكاة شريط التقدم
+            function simulateProgress() {
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += Math.random() * 10;
+                    if (progress > 90) {
+                        progress = 90; // لا نصل إلى 100% حتى تكتمل الصورة
+                    }
+                    progressBar.style.width = `${progress}%`;
+                    
+                    if (!isGenerating) {
+                        clearInterval(interval);
+                        progressBar.style.width = '100%';
+                        setTimeout(() => {
+                            progressBar.style.width = '0%';
+                        }, 500);
+                    }
+                }, 500);
+            }
+            
+            // بدء التحميل
+            function startLoading() {
+                loadingOverlay.style.display = 'flex';
+                progressBar.style.width = '0%';
+            }
+            
+            // إيقاف التحميل
+            function stopLoading() {
+                loadingOverlay.style.display = 'none';
+            }
+            
+            // إخفاء الرسائل
+            function hideMessages() {
+                errorMessage.style.display = 'none';
+                successMessage.style.display = 'none';
+            }
+            
+            // عرض رسالة خطأ
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+            }
+            
+            // عرض رسالة نجاح
+            function showSuccess(message) {
+                successMessage.textContent = message;
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+            }
+            
+            // التحقق من حالة API
+            function checkAPIStatus() {
+                const testUrl = `${apiBaseUrl}?text=test`;
+                const img = new Image();
+                
+                img.onload = function() {
+                    updateAPIStatus(true);
+                };
+                
+                img.onerror = function() {
+                    updateAPIStatus(false);
+                };
+                
+                img.src = testUrl;
+            }
+            
+            // تحديث حالة API
+            function updateAPIStatus(isActive) {
+                if (isActive) {
+                    apiStatus.innerHTML = '<i class="fas fa-circle"></i> <span>API متصل</span>';
+                    apiStatus.className = 'status-badge status-active';
+                } else {
+                    apiStatus.innerHTML = '<i class="fas fa-circle"></i> <span>API غير متصل</span>';
+                    apiStatus.className = 'status-badge status-inactive';
+                }
+            }
+            
+            // تحميل الصور السابقة من localStorage
+            function loadHistory() {
+                const savedImages = localStorage.getItem('aiGeneratedImages');
+                if (savedImages) {
+                    generatedImages = JSON.parse(savedImages);
+                }
+            }
+            
+            // حفظ الصورة في السجل
+            function saveToHistory(imageUrl, prompt, fullPrompt) {
+                const newImage = {
+                    url: imageUrl,
+                    prompt: prompt,
+                    fullPrompt: fullPrompt,
+                    date: new Date().toISOString()
+                };
+                
+                generatedImages.unshift(newImage);
+                if (generatedImages.length > 50) {
+                    generatedImages = generatedImages.slice(0, 50); // حفظ آخر 50 صورة فقط
+                }
+                
+                localStorage.setItem('aiGeneratedImages', JSON.stringify(generatedImages));
+                
+                // تحديث واجهة المستخدم
+                updateHistoryUI();
+            }
+            
+            // تحديث واجهة السجل
+            function updateHistoryUI() {
+                if (generatedImages.length > 0) {
+                    renderHistory();
+                    historyContainer.style.display = 'block';
+                    historyEmptyState.style.display = 'none';
+                    historyBadge.textContent = generatedImages.length;
+                    historyBadge.style.display = 'flex';
+                } else {
+                    historyContainer.style.display = 'none';
+                    historyEmptyState.style.display = 'block';
+                    historyBadge.style.display = 'none';
+                }
+            }
+            
+            // عرض الصور السابقة
+            function renderHistory() {
+                historyGrid.innerHTML = '';
+                
+                generatedImages.forEach((image, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'history-item';
+                    item.innerHTML = `
+                        <img src="${image.url}" alt="صورة ${index + 1}" class="history-img">
+                        <div class="history-overlay">${image.prompt.substring(0, 30)}${image.prompt.length > 30 ? '...' : ''}</div>
+                    `;
+                    
+                    item.addEventListener('click', () => {
+                        resultImage.src = image.url;
+                        resultPrompt.textContent = image.prompt;
+                        resultContainer.style.display = 'block';
+                        emptyState.style.display = 'none';
+                        
+                        // التبديل إلى تبويب المولد
+                        switchTab('generator-tab');
+                        
+                        // التمرير إلى الأعلى
+                        setTimeout(() => {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }, 300);
+                    });
+                    
+                    historyGrid.appendChild(item);
+                });
+            }
+            
+            // مسح السجل
+            function clearHistory() {
+                if (generatedImages.length === 0) {
+                    showError('لا توجد صور في السجل لمسحها');
+                    return;
+                }
+                
+                if (confirm('هل أنت متأكد أنك تريد مسح سجل الصور بالكامل؟ لا يمكن التراجع عن هذا الإجراء.')) {
+                    generatedImages = [];
+                    localStorage.removeItem('aiGeneratedImages');
+                    updateHistoryUI();
+                    showSuccess('تم مسح سجل الصور بنجاح');
+                }
+            }
+            
+            // تحميل الإعدادات
+            function loadSettings() {
+                const savedTheme = localStorage.getItem('aiImageTheme') || 'auto';
+                const savedQuality = localStorage.getItem('aiImageQuality') || 'medium';
+                const savedSize = localStorage.getItem('aiImageSize') || '512x512';
+                const savedApiUrl = localStorage.getItem('aiImageApiUrl') || 'https://brookbot11.serv00.net/api.php';
+                
+                themeSelect.value = savedTheme;
+                qualitySelect.value = savedQuality;
+                sizeSelect.value = savedSize;
+                apiUrlInput.value = savedApiUrl;
+                apiBaseUrl = savedApiUrl;
+                
+                // تطبيق السمة المختارة
+                changeTheme();
+            }
+            
+            // حفظ إعدادات API
+            function saveApiUrl() {
+                const url = apiUrlInput.value.trim();
+                if (url) {
+                    apiBaseUrl = url;
+                    localStorage.setItem('aiImageApiUrl', url);
+                    showSuccess('تم حفظ رابط API بنجاح');
+                    checkAPIStatus();
+                }
+            }
+            
+            // تغيير السمة
+            function changeTheme() {
+                const theme = themeSelect.value;
+                localStorage.setItem('aiImageTheme', theme);
+                
+                if (theme === 'auto') {
+                    // استخدام تفضيل النظام
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    setTheme(prefersDark ? 'dark' : 'light');
+                } else {
+                    setTheme(theme);
+                }
+            }
+            
+            // تعيين السمة
+            function setTheme(theme) {
+                currentTheme = theme;
+                
+                if (theme === 'dark') {
+                    document.body.classList.add('dark-mode');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                }
+            }
+            
+            // الكشف عن السمة المفضلة للمستخدم
+            function detectPreferredTheme() {
+                if (themeSelect.value === 'auto') {
+                    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    setTheme(prefersDark ? 'dark' : 'light');
+                }
+            }
+            
+            // إعداد مستمع لتغير السمة التلقائي
+            function setupThemeListener() {
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+                
+                prefersDark.addListener(e => {
+                    if (themeSelect.value === 'auto') {
+                        setTheme(e.matches ? 'dark' : 'light');
+                    }
+                });
+            }
+            
+            // إعادة تعيين الإعدادات
+            function resetSettings() {
+                if (confirm('هل أنت متأكد أنك تريد إعادة تعيين جميع الإعدادات إلى القيم الافتراضية؟')) {
+                    localStorage.removeItem('aiImageTheme');
+                    localStorage.removeItem('aiImageQuality');
+                    localStorage.removeItem('aiImageSize');
+                    localStorage.removeItem('aiImageApiUrl');
+                    
+                    // إعادة تحميل الإعدادات
+                    loadSettings();
+                    
+                    showSuccess('تم إعادة تعيين الإعدادات بنجاح');
+                }
+            }
+            
+            // تبديل التبويبات
+            function switchTab(tabId) {
+                // إخفاء جميع المحتويات
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // إلغاء تنشيط جميع الأزرار
+                footerBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // إظهار المحتوى المحدد
+                document.getElementById(tabId).classList.add('active');
+                
+                // تنشيط الزر المحدد
+                document.querySelector(`.footer-btn[data-tab="${tabId}"]`).classList.add('active');
+                
+                // حفظ التبويب النشط
+                currentTab = tabId;
+                
+                // إذا كان تبويب السجل، تأكد من تحديثه
+                if (tabId === 'history-tab') {
+                    updateHistoryUI();
+                }
+            }
+            
+            // تحميل الصورة
+            function downloadImage() {
+                if (!resultImage.src) {
+                    showError('لا توجد صورة متاحة للتحميل');
+                    return;
+                }
+                
+                // إنشاء عنصر canvas لرسم الصورة عليه
+                const canvas = document.createElement('canvas');
+                const ctx = canvas.getContext('2d');
+                canvas.width = resultImage.naturalWidth;
+                canvas.height = resultImage.naturalHeight;
+                
+                // رسم الصورة على canvas
+                ctx.drawImage(resultImage, 0, 0);
+                
+                // تحويل canvas إلى صورة للتحميل
+                canvas.toBlob(blob => {
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = `ai-image-${Date.now()}.jpg`;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                    
+                    showSuccess('تم بدء تحميل الصورة');
+                }, 'image/jpeg', 0.9);
+            }
+            
+            // مشاركة الصورة
+            function shareImage() {
+                if (!resultImage.src) {
+                    showError('لا توجد صورة متاحة للمشاركة');
+                    return;
+                }
+                
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'صورة منشأة بالذكاء الاصطناعي',
+                        text: 'قمت بإنشاء هذه الصورة باستخدام تطبيق منشئ الصور الذكي',
+                        url: resultImage.src
+                    })
+                    .then(() => showSuccess('تمت المشاركة بنجاح'))
+                    .catch(error => showError('حدث خطأ أثناء المشاركة'));
+                } else {
+                    // Fallback for browsers that don't support Web Share API
+                    const shareUrl = `whatsapp://send?text=شاهد هذه الصورة التي أنشأتها باستخدام الذكاء الاصطناعي: ${resultImage.src}`;
+                    window.open(shareUrl, '_blank');
+                }
+            }
+        });
+    </script>
+
+</body></html>
